@@ -1,0 +1,26 @@
+.container{
+    height: 8rem;
+    width: 100%;
+}
+
+.wrapper{
+    padding: 0.5rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrapper > div:nth-child(2){
+    font-size: 1.8rem;
+}
+
+.wrapper > :last-child{
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: .7rem;
+    background-color: white;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
