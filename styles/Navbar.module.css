@@ -7,7 +7,7 @@
 }
 
 .wrapper {
-  padding: 0.5rem 6rem;
+  padding: 1.6rem 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,8 +70,10 @@
 .loginBtn {
   background-color: var(--primary-color);
   padding: 1rem 2.5rem;
-  color: white;
+  color: white !important;
   font-size: 1.6rem;
   font-weight: 700;
   border-radius: 0.5rem;
 }
+
+

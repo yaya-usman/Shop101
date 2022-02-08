@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Script from "next/script";
+import Featured from "../components/Featured";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -12,8 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>Hello world</div>
-
+      <Featured />
       <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"
         strategy="beforeInteractive"

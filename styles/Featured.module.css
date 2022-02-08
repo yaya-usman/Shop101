@@ -1,0 +1,80 @@
+.container {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  position: relative;
+  margin-top: -4.5rem;
+}
+
+.wrapper {
+  display: flex;
+  gap: 5rem ;
+  height: 100%;
+  width: 300vw;
+  transition: all 1.5s ease-in-out ;
+  align-items: center;
+}
+
+.left {
+  flex: 0.5;
+}
+.content{
+  width: 70%;
+  margin: 0 auto;
+  
+}
+
+.title{
+  font-size: 2.6rem;
+  line-height: 3.5rem;
+}
+
+.desc{
+  line-height: 3rem;
+  font-size: 1.6rem;
+}
+.price{
+  font-weight: 700;
+  font-size: 1.8rem;
+ 
+}
+
+.buyBtn{
+  font-size: 1.8rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 2rem 6rem;
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: -.3rem ;
+  font-weight: 500;
+}
+
+.imgContainer {
+  flex: 0.5;
+  height: 100%;
+}
+
+.imgContainer img{
+  height: 100%;
+  object-fit: contain;
+}
+
+.arrowContainer {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+  z-index: 2;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+

@@ -17,7 +17,7 @@ const Navbar = () => {
               <i className="fas fa-shopping-basket fa-2x"></i>
               <span>0</span>
             </div>
-            <Link href={"/"}>
+            <Link href={"/"} passHref>
               <a className={styles.loginBtn}>Login</a>
             </Link>
           </div>
