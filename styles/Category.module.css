@@ -1,0 +1,73 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+}
+
+.browseBtn {
+  align-self: center;
+  font-size: 1.6rem;
+  outline: none;
+  cursor: pointer;
+  padding: 2rem 3.5rem;
+  border: 2.5px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+  border-radius: 5px;
+  margin-top: 3rem;
+  font-weight: 500;
+}
+
+.wrapper {
+  padding: 1.6rem 6rem;
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 350px);
+  gap: 1.5rem;
+}
+.catCard {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 1px;
+  position: relative;
+}
+
+.catCard > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.8s ease-in-out;
+  position: relative;
+}
+
+.catCard:hover > img {
+  transform: scale(1.2);
+}
+
+.catCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: .2;
+
+  
+}
+
+.wrapper div:nth-child(1) {
+  grid-row: 1/2;
+}
+.wrapper div:nth-child(2) {
+  grid-row: 1/2;
+}
+
+.wrapper div:nth-child(3) {
+  grid-row: 2/-1;
+}
+.wrapper div:nth-child(4) {
+  grid-row: 2/-1;
+}

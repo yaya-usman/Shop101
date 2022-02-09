@@ -1,6 +1,11 @@
 .container{
     height: 8rem;
     width: 100%;
+    padding-top: 16rem;
+    padding-bottom: 8rem;
+    /* position: sticky;
+    z-index: 9999;
+    background-color: white; */
 }
 
 .wrapper{
