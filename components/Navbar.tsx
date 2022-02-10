@@ -1,20 +1,24 @@
 import Link from "next/link";
 import React from "react";
 import styles from "../styles/Navbar.module.css";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBasketShopping, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
+  const router = useRouter()
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.left}>
-          <h3>SHOP101</h3>
+          <h3 onClick={() => router.push('/')}>SHOP101</h3>
           <span></span>
         </div>
         <div className={styles.right}>
           <div className={styles.iconsContainer}>
-            <i className="fas fa-home fa-2x"></i>
+            <FontAwesomeIcon icon={faHome} size="2x" />
             <div className={styles.cart}>
-              <i className="fas fa-shopping-basket fa-2x"></i>
+              <FontAwesomeIcon icon={faBasketShopping} size="2x" />
               <span>0</span>
             </div>
             <Link href={"/"} passHref>

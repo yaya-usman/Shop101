@@ -16,6 +16,11 @@
   border-radius: 5px;
   margin-top: 3rem;
   font-weight: 500;
+  transition: all .3s ease-in-out;
+}
+
+.browseBtn:hover{
+  background-color: rgb(231, 231, 231);
 }
 
 .wrapper {
@@ -29,7 +34,7 @@
 .catCard {
   cursor: pointer;
   overflow: hidden;
-  border-radius: 1px;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -38,7 +43,8 @@
   width: 100%;
   object-fit: cover;
   transition: all 0.8s ease-in-out;
-  position: relative;
+  position: absolute;
+  z-index: 10;
 }
 
 .catCard:hover > img {
@@ -54,8 +60,22 @@
   width: 100%;
   background-color: #000;
   opacity: .2;
+  z-index: 13;
 
   
+}
+
+.title{
+  position: absolute;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, .3);
+  padding: 2rem;
+  border-radius: 5px;
+  color: white;
+  font-size: 3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .wrapper div:nth-child(1) {
@@ -71,3 +91,6 @@
 .wrapper div:nth-child(4) {
   grid-row: 2/-1;
 }
+
+
+

@@ -23,7 +23,7 @@ const Category = () => {
 
         {
             id: 4,
-            title: "Jewelery",
+            title: "Jewelry",
             img: "/img/jewelry.jpg"
         },
 
@@ -36,9 +36,9 @@ const Category = () => {
                         <>
                             <div className={styles.catCard} key={idx}>
                                 <img src={item.img} alt="categoryImg" />
-                                {/* <h2 className={styles.title}>
+                                <h2 className={styles.title}>
                                     {item.title}
-                                </h2> */}
+                                </h2>
                             </div>
                         </>
                     )

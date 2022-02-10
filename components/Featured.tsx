@@ -1,6 +1,8 @@
 import styles from "../styles/Featured.module.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 // import { useSelector } from "react-redux";
 
 const Featured = () => {
@@ -67,8 +69,9 @@ const Featured = () => {
         style={{ left: 0 }}
         onClick={() => handleArrow("l")}
       >
-        <i className="fa-solid fa-arrow-left fa-2x"></i>
+         <FontAwesomeIcon icon={faArrowLeft} size="2x" />
       </div>
+
       <div
         className={styles.wrapper}
         style={{ transform: `translateX(${-100 * index}vw)` }}
@@ -91,7 +94,7 @@ const Featured = () => {
                   </button>
                 </div>
               </div>
-              <div className={styles.imgContainer} key={i}>
+              <div className={styles.imgContainer}>
                 <img src={item.image} alt="First slide" />
               </div>
             </>
@@ -103,7 +106,7 @@ const Featured = () => {
         style={{ right: 0 }}
         onClick={() => handleArrow("r")}
       >
-        <i className="fa-solid fa-arrow-right fa-2x"></i>
+        <FontAwesomeIcon icon={faArrowRight} size="2x" />
       </div>
     </div>
   );
