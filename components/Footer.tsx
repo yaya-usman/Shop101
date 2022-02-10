@@ -11,7 +11,9 @@ const Footer = () => {
         <div>&nbsp;</div>
         <div>&copy; {new Date().getFullYear()} Shop101 | Made with ❤️</div>
         <Link href={"https://github.com/yaya-usman/Shop101"}>
-          <FontAwesomeIcon icon={faGithub} />
+          <a>
+            <FontAwesomeIcon className={styles.icon} icon={faGithub} size="2x" />
+          </a>
         </Link>
       </div>
     </div>
