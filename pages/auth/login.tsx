@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Link from "next/link";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "../../styles/Login.module.css";
 
-const Login: React.FC = () => {
+const Login: NextPage = () => {
   const [authForm, setAuthForm] = useState<{ email: string; password: string }>(
     {
       email: "",

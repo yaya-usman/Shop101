@@ -1,8 +1,10 @@
 import Link from "next/link";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import styles from "../../styles/Signup.module.css";
+import { GetStaticProps, NextPage } from "next";
+import axios from "axios";
 
-const Signup: React.FC = () => {
+const Signup: NextPage = () => {
   const [authForm, setAuthForm] = useState<{
     email: string;
     password: string;
@@ -80,3 +82,15 @@ const Signup: React.FC = () => {
 };
 
 export default Signup;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get("https://fakestoreapi.com/products");
+
+  const data = await res.data;
+
+  return {
+    props: {
+      products: data,
+    },
+  };
+};

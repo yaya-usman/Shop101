@@ -1,10 +1,13 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import LinearDeterminate from "./LinearDeterminate";
 
-const Layout: React.FC = ({ children }) => {
+
+const Layout = ({ children }) => {
   return (
     <>
+       {/* <LinearDeterminate /> */}
       <Navbar />
       {children}
       <Footer />

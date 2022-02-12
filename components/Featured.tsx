@@ -3,47 +3,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { IProducts } from "../types";
 // import { useSelector } from "react-redux";
 
-const Featured = () => {
+const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
   // const Products = useSelector(({ ProductReducer: { products } }) => products);
 
   const [index, setIndex] = useState(0);
   const router = useRouter();
-  const Products = [
-    {
-      id: 1,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      price: "22.3",
-      description:
-        "Slim-Fitting Style, Contrast Raglan Long Sleeve, Three-Button Henley Placket, Light Weight & Soft Fabric For Breathable And Comfortable Wearing. And Solid Stitched Shirts With Round Neck Made For Dura....",
-    },
-    {
-      id: 2,
-      title: "Mens Casual Premium Slim Fit T-Shirts",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      price: "22.3",
-      description:
-        "Slim-Fitting Style, Contrast Raglan Long Sleeve, Three-Button Henley Placket, Light Weight & Soft Fabric For Breathable And Comfortable Wearing. And Solid Stitched Shirts With Round Neck Made For Dura....",
-    },
-    {
-      id: 3,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      price: "22.3",
-      description:
-        "Slim-Fitting Style, Contrast Raglan Long Sleeve, Three-Button Henley Placket, Light Weight & Soft Fabric For Breathable And Comfortable Wearing. And Solid Stitched Shirts With Round Neck Made For Dura....",
-    },
-    {
-      id: 4,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-      price: "22.3",
-      description:
-        "Slim-Fitting Style, Contrast Raglan Long Sleeve, Three-Button Henley Placket, Light Weight & Soft Fabric For Breathable And Comfortable Wearing. And Solid Stitched Shirts With Round Neck Made For Dura....",
-    },
-  ];
 
   useEffect(() => {
     const slideAuto = setInterval(() => handleArrow("r"), 6000);
@@ -69,16 +36,16 @@ const Featured = () => {
         style={{ left: 0 }}
         onClick={() => handleArrow("l")}
       >
-         <FontAwesomeIcon icon={faArrowLeft} size="2x" />
+        <FontAwesomeIcon icon={faArrowLeft} size="2x" />
       </div>
 
       <div
         className={styles.wrapper}
         style={{ transform: `translateX(${-100 * index}vw)` }}
       >
-        {Products.length &&
-          Products.slice(0, 3).map((item, i) => (
-            <>
+        {products.length &&
+          products.slice(0, 3).map((item) => (
+            <div key={item.id}>
               <div className={styles.left}>
                 <div className={styles.content}>
                   <h4 className={styles.title}>{item.title}</h4>
@@ -97,7 +64,7 @@ const Featured = () => {
               <div className={styles.imgContainer}>
                 <img src={item.image} alt="First slide" />
               </div>
-            </>
+            </div>
           ))}
       </div>
 
