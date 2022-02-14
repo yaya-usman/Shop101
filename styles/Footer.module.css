@@ -1,12 +1,12 @@
 .container{
     height: 8rem;
     width: 100%;
-    margin-top: 25rem;
 }
 
 .wrapper{
     padding: 0.5rem 6rem;
     display: flex;
+    height: 100%;
     align-items: center;
     justify-content: space-between;
 }

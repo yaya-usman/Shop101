@@ -1,7 +1,6 @@
-.login {
-    height: 50rem;
+.signup {
     width: 40rem;
-    margin: 0 auto ;
+    margin: -2rem auto 3rem auto ;
   }
   
   .wrapper {
@@ -46,7 +45,8 @@
   
   
   .form button{
-      margin-top: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
       padding: 1rem 2rem;
       outline: none;
       border: none;
@@ -58,7 +58,6 @@
   
   
   .signupCta{
-      margin-top: -1.5rem;
       font-size: 1.5rem;
   }
   .signupCta a{

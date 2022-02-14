@@ -1,6 +1,6 @@
 import styles from "../styles/Featured.module.css";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState,Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IProducts } from "../types";
@@ -45,7 +45,7 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
       >
         {products.length &&
           products.slice(0, 3).map((item) => (
-            <div key={item.id}>
+            <Fragment key={item.id}>
               <div className={styles.left}>
                 <div className={styles.content}>
                   <h4 className={styles.title}>{item.title}</h4>
@@ -64,7 +64,7 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
               <div className={styles.imgContainer}>
                 <img src={item.image} alt="First slide" />
               </div>
-            </div>
+            </Fragment>
           ))}
       </div>
 

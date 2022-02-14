@@ -34,7 +34,7 @@ const Signup: NextPage = () => {
   };
 
   return (
-    <div className={styles.login}>
+    <div className={styles.signup}>
       <div className={styles.heading}>
         <h3>Hello,</h3>
         <p>Login to Shop101 or create an account, don't miss the discounts!</p>
