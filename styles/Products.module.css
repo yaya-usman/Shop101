@@ -1,7 +1,7 @@
 .productsContainer {
   height: calc(100% - 16rem);
   background-color: var(--hover-color);
-
+  position: relative;
 }
 
 .wrapper {
@@ -21,7 +21,6 @@
   width: 100%;
   flex-wrap: wrap;
 
-
 }
 
 
@@ -31,4 +30,23 @@
   justify-content: center;
   margin: 0 auto;
   align-self: center;
+}
+
+
+.fixedScroll{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 8.5rem;
+  right: 3em;
+  z-index: 99;
+  height: 3.5rem;
+  width: 4rem;
+  padding: .7rem;
+  background-color: white;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--primary-color);
 }

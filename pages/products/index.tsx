@@ -1,26 +1,28 @@
 import axios from "axios";
 import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FilterCard from "../../components/FilterCard";
 import styles from "../../styles/Products.module.css";
 import { IProducts } from "../../types";
 import ProductCard from "../../components/ProductCard";
-import { CircularProgress, Skeleton } from "@mui/material";
-
+import { CircularProgress } from "@mui/material";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useWindowScroll } from "react-use";
 
 const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const { y: pageYOffset } = useWindowScroll();
+  const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
     const start = () => {
       setLoading(true);
-      console.log("start");
     };
     const end = () => {
       setLoading(false);
-      console.log("end");
     };
     router.events.on("routeChangeStart", start);
     router.events.on("routeChangeComplete", end);
@@ -30,7 +32,21 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
       router.events.off("routeChangeComplete", end);
       router.events.off("routeChangeError", end);
     };
-  }, [router]);
+  }, []);
+
+  useEffect(() => {
+    if (pageYOffset > 600) {
+      setVisibility(true);
+    } else {
+      setVisibility(false);
+    }
+  }, [pageYOffset]);
+
+
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className={styles.productsContainer}>
@@ -38,7 +54,7 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
         <FilterCard />
         <div className={styles.right}>
           {loading ? (
-            <CircularProgress color="secondary" className={styles.progress}/>
+            <CircularProgress color="secondary" className={styles.progress} />
           ) : (
             <>
               {products.map((product) => (
@@ -47,6 +63,11 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
             </>
           )}
         </div>
+        {visibility && (
+          <div className={styles.fixedScroll} onClick={scrollToTop}>
+            <FontAwesomeIcon icon={faArrowUp} size="2x" />
+          </div>
+        )}
       </div>
     </div>
   );
