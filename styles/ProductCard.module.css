@@ -1,0 +1,73 @@
+.container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.wrapper {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 1rem;
+  border-radius: 10px;
+  padding-bottom: 3rem;
+}
+
+.imgContainer {
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  transform: scale(.9);
+  transition: all .3s linear;
+}
+
+.imgContainer:hover{
+  transform: scale(1);
+  
+}
+
+
+.body {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.body h3 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.price span {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price span:nth-child(2) {
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.price span:nth-child(2):hover{
+    opacity: .8;
+}

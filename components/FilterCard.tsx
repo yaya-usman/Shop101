@@ -90,55 +90,57 @@ const FilterCard = () => {
 
   return (
     <div className={styles.left}>
-      <div className={styles.topLeft}>
-        <h3>Categories</h3>
-        <ul className={styles.box}>
-          {inputList.slice(0, -2).map((item) => {
-            return (
-              <Link href={item.href} key={item.id}>
-                <li onClick={() => setCatChecked(item.value)}>
-                  <input
-                    type="radio"
-                    id={item.id}
-                    name={item.name}
-                    className={styles.radio}
-                    value={item.value}
-                    checked={catChecked === item.value}
-                    onChange={() => setCatChecked(item.value)}
-                  />
+      <div className={styles.wrapper}>
+        <div className={styles.topLeft}>
+          <h3>Categories</h3>
+          <ul className={styles.box}>
+            {inputList.slice(0, -2).map((item) => {
+              return (
+                <Link href={item.href} key={item.id}>
+                  <li onClick={() => setCatChecked(item.value)}>
+                    <input
+                      type="radio"
+                      id={item.id}
+                      name={item.name}
+                      className={styles.radio}
+                      value={item.value}
+                      checked={catChecked === item.value}
+                      onChange={() => setCatChecked(item.value)}
+                    />
 
-                  <label htmlFor={item.id}>{item.label}</label>
-                  <div className={styles.check}></div>
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
-      </div>
-      <div className={styles.bottomLeft}>
-        <h3>Sort by Price</h3>
-        <ul className={styles.box}>
-          {inputList.slice(-2).map((item) => {
-            return (
-              <Link href={item.href} key={item.id}>
-                <li onClick={() => setSortChecked(item.value)}>
-                  <input
-                    type="radio"
-                    id={item.id}
-                    name={item.name}
-                    value={item.value}
-                    className={styles.radio}
-                    checked={sortChecked === item.value}
-                    onChange={() => setSortChecked(item.value)}
-                  />
+                    <label htmlFor={item.id}>{item.label}</label>
+                    <div className={styles.check}></div>
+                  </li>
+                </Link>
+              );
+            })}
+          </ul>
+        </div>
+        <div className={styles.bottomLeft}>
+          <h3>Sort by Price</h3>
+          <ul className={styles.box}>
+            {inputList.slice(-2).map((item) => {
+              return (
+                <Link href={item.href} key={item.id}>
+                  <li onClick={() => setSortChecked(item.value)}>
+                    <input
+                      type="radio"
+                      id={item.id}
+                      name={item.name}
+                      value={item.value}
+                      className={styles.radio}
+                      checked={sortChecked === item.value}
+                      onChange={() => setSortChecked(item.value)}
+                    />
 
-                  <label htmlFor={item.id}>{item.label}</label>
-                  <div className={styles.check}></div>
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
+                    <label htmlFor={item.id}>{item.label}</label>
+                    <div className={styles.check}></div>
+                  </li>
+                </Link>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

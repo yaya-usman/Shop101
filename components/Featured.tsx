@@ -4,10 +4,8 @@ import { useEffect, useState,Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IProducts } from "../types";
-// import { useSelector } from "react-redux";
 
 const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
-  // const Products = useSelector(({ ProductReducer: { products } }) => products);
 
   const [index, setIndex] = useState(0);
   const router = useRouter();
@@ -54,7 +52,7 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
                   </p>
                   <h6 className={styles.price}>${item.price} /ONLY-</h6>
                   <button
-                    onClick={() => router.push(`/`)}
+                    onClick={() => router.push(`/products/${item.id}`)}
                     className={styles.buyBtn}
                   >
                     BUY NOW

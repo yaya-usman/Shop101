@@ -1,11 +1,19 @@
-.left {
+.left{
   flex: 0.25;
   display: flex;
   flex-direction: column;
 }
 
+.wrapper {
+  position: sticky;
+  top: 7rem;
+  left: 0;
+}
+
 .topLeft {
   padding: 2rem;
+ 
+  z-index: 99;
 }
 .topLeft h3 {
   font-size: 2rem;

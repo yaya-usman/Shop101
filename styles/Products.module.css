@@ -1,6 +1,7 @@
 .productsContainer {
   height: calc(100% - 16rem);
   background-color: var(--hover-color);
+
 }
 
 .wrapper {
@@ -16,6 +17,18 @@
   background-color: white;
   box-shadow: -2px 5px 13px -12px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 
 
+}
+
+
+.progress{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  align-self: center;
 }
