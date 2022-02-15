@@ -45,7 +45,7 @@ const Category = () => {
           );
         })}
       </div>
-      <Link href={'/products'} passHref>
+      <Link href={`/products?sort=asc`} passHref>
         <button className={styles.browseBtn}>BROWSE STORE</button>
       </Link>
     </div>
