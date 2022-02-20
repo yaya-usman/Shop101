@@ -21,7 +21,7 @@ const Navbar = () => {
               size="2x"
               onClick={() => router.push("/")}
             />
-            <div className={styles.cart}>
+            <div className={styles.cart} onClick ={() => router.push('/cart')}>
               <FontAwesomeIcon icon={faBasketShopping} size="2x" />
               <span>0</span>
             </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "../styles/ProductCard.module.css";
 import { IProducts } from "../types";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";

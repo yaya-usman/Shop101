@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterCard from "../../components/FilterCard";
 import styles from "../../styles/Products.module.css";
 import { IProducts } from "../../types";
@@ -10,6 +10,7 @@ import { CircularProgress } from "@mui/material";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWindowScroll } from "react-use";
+
 
 const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   const router = useRouter();
