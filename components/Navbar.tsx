@@ -1,12 +1,16 @@
 import Link from "next/link";
-import React from "react";
+import React, { Context, useContext } from "react";
 import styles from "../styles/Navbar.module.css";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faHome } from "@fortawesome/free-solid-svg-icons";
+import ProductsContext from "../context/ProductsContext";
+import { IProducts, ProductContextState } from "../types";
 
 const Navbar = () => {
   const router = useRouter();
+  // const {addProduct} = useContext(ProductsContext);
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

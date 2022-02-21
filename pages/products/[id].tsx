@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import styles from "../../styles/ProductDetails.module.css";
 import {
   faArrowLeft,
@@ -14,6 +14,8 @@ import axios from "axios";
 import { IProducts } from "../../types";
 import Modal from "../../components/Modal";
 import { AnimatePresence } from "framer-motion";
+import { ProductsContext } from "../../context/ProductsContext";
+import Cookies from "js-cookie";
 
 const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
   const router = useRouter();
@@ -22,10 +24,14 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
   const randomNum = Math.floor(Math.random() * randomDiscounts.length);
   const randomVal = useRef<number>(randomDiscounts[randomNum]);
 
-  useEffect(() => {
-    randomVal.current =
-      randomDiscounts[randomNum];
-  }, [router]);
+  const { addProduct } = useContext(ProductsContext);
+
+  const handleAddToCart = () => {
+    addProduct(product);
+    setModalOpen(true);
+  };
+
+
 
   return (
     <>
@@ -66,7 +72,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
               </div>
             </div>
             <h2 className={styles.currPrice}>
-              ${" "}
+              $
               {(
                 parseFloat(product.price) -
                 parseFloat(product.price) * randomVal.current
@@ -83,7 +89,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
               <button onClick={() => router.push("/products?sort=asc")}>
                 Go Back
               </button>
-              <button onClick={() => setModalOpen(true)}>
+              <button onClick={handleAddToCart}>
                 <FontAwesomeIcon
                   icon={faCartShopping}
                   size="1x"

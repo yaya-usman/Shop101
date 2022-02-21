@@ -112,7 +112,25 @@
 
 }
 
+.noItem{
+  font-size: 2.5rem;
+width: 50vw;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+  color: #d1411e;
 
+
+}
+.noSummary > div{
+  display: none;
+}
+
+.noSummary button{
+  cursor: not-allowed;
+}
 
 
 @media screen and (max-width: 480px) {
