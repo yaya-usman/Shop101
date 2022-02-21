@@ -1,6 +1,8 @@
-import React, { createContext, useState, FC } from "react";
+import React, { createContext, useState, FC, useEffect } from "react";
 import { IProducts, ProductContextState, ProductWithQty } from "../types";
 import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+
 
 const contextDefaultValues: ProductContextState = {
   products: [],
@@ -8,6 +10,8 @@ const contextDefaultValues: ProductContextState = {
   delProduct: () => { },
   increaseQty: () => 0,
   decreaseQty: () => 0,
+  totalItem: 0,
+  discount: 0
 };
 
 export const ProductsContext =
@@ -17,17 +21,32 @@ const ProductsProvider: FC = ({ children }) => {
   const [products, setProducts] = useState<ProductWithQty[]>(
     contextDefaultValues.products
   );
+  const [totalItem, setTotalItem] = useState<number>(0)
+  const [discount, setDiscount] = useState<number>(0)
+  const randomDiscounts = [0.03, 0.1, 0.02, 0.05, 0.23, 0.5];
+  const randomNum = Math.floor(Math.random() * randomDiscounts.length);
+  const router = useRouter()
+
+
+  useEffect(() => {
+    setDiscount(randomDiscounts[randomNum])
+  }, [router.query.id])
 
   const addProduct = (newProduct: IProducts) => {
     const itemExists = products.find((item) => item.id === newProduct.id);
     if (itemExists) {
       itemExists.qty++;
+      setTotalItem(totalItem);
     }
     else {
-      products.push({ ...newProduct, qty: 1 });
+      const discountedPrice = parseFloat(newProduct.price) - parseFloat(newProduct.price) * discount
+      products.push({ ...newProduct, qty: 1, discountedPrice: discountedPrice });
+      setTotalItem(totalItem + 1)
     }
+
     // Cookies.set("inCart", JSON.stringify([...products, newProduct]));
   };
+
 
   const delProduct = (id: number) => {
     const newProducts = products.filter((product) => product.id !== id);
@@ -35,6 +54,7 @@ const ProductsProvider: FC = ({ children }) => {
     //   maxAge: 0
     // });
     setProducts(newProducts);
+    setTotalItem(totalItem - 1);
 
   };
 
@@ -55,6 +75,8 @@ const ProductsProvider: FC = ({ children }) => {
       const index = products.findIndex((item) => item.id === id)
       products.splice(index, 1);
       item.qty = 0;
+      setTotalItem(totalItem - 1);
+
     }
     else {
       if (item) {
@@ -62,9 +84,8 @@ const ProductsProvider: FC = ({ children }) => {
       }
     }
     return item?.qty
-
-
   };
+
 
   return (
     <ProductsContext.Provider
@@ -74,6 +95,8 @@ const ProductsProvider: FC = ({ children }) => {
         delProduct,
         increaseQty,
         decreaseQty,
+        totalItem,
+        discount
       }}
     >
       {children}

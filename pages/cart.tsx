@@ -13,7 +13,7 @@ import { parseCookies } from "../utils/parseCookies";
 
 const Cart: NextPage<any> = () => {
   const [_, setQuantity] = useState<number | undefined>(1)
-  const { products, delProduct, increaseQty, decreaseQty } = useContext(ProductsContext);
+  const { products, delProduct, increaseQty, decreaseQty, discount } = useContext(ProductsContext);
 
   const handleIncrease = (id: number) => {
     let res = increaseQty(id);
@@ -36,8 +36,9 @@ const Cart: NextPage<any> = () => {
               <th></th>
               <th>Product</th>
               <th>Price</th>
+              <th>Discount(%)</th>
               <th>Quantity</th>
-              <th>Total</th>
+              <th>Total<br/>(with discount)</th>
               <th></th>
             </tr>
           </thead>
@@ -53,8 +54,8 @@ const Cart: NextPage<any> = () => {
                         <div className={styles.imgContainer}>
                           <Image
                             src={product.image}
-                            width="350"
-                            height="350"
+                            width="400"
+                            height="400"
                             objectFit="contain"
                             alt=""
                           />
@@ -65,7 +66,15 @@ const Cart: NextPage<any> = () => {
                       </td>
                       <td>
                         <span className={styles.price}>
-                          $ {parseFloat(product.price).toFixed(2)}
+                          $ {(
+                            parseFloat(product.price)
+                          ).toFixed(2)}
+                        </span>
+                      </td>
+                      <td>
+                        <span className={styles.price}>
+                          {(100 - (product.discountedPrice / parseFloat(product.price)
+                          ) * 100)}
                         </span>
                       </td>
                       <td>
@@ -87,7 +96,7 @@ const Cart: NextPage<any> = () => {
                       </td>
                       <td>
                         <span className={styles.total}>
-                          $ {(parseFloat(product.price) * product.qty).toFixed(2)}
+                          $ {(product.discountedPrice * product.qty).toFixed(2)}
                         </span>
                       </td>
                       <td>

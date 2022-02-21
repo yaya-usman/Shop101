@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-       {/* <LinearDeterminate /> */}
+      {/* <LinearDeterminate /> */}
       <Navbar />
       {children}
       <Footer />

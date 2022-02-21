@@ -1,15 +1,15 @@
 import Link from "next/link";
-import React, { Context, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "../styles/Navbar.module.css";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faHome } from "@fortawesome/free-solid-svg-icons";
-import ProductsContext from "../context/ProductsContext";
-import { IProducts, ProductContextState } from "../types";
+import {ProductsContext} from "../context/ProductsContext";
+import {ProductContextState } from "../types";
 
-const Navbar = () => {
+const Navbar : React.FC = () => {
   const router = useRouter();
-  // const {addProduct} = useContext(ProductsContext);
+  const {totalItem} = useContext<ProductContextState>(ProductsContext);
 
   return (
     <div className={styles.container}>
@@ -27,7 +27,7 @@ const Navbar = () => {
             />
             <div className={styles.cart} onClick ={() => router.push('/cart')}>
               <FontAwesomeIcon icon={faBasketShopping} size="2x" />
-              <span>0</span>
+              <span>{totalItem}</span>
             </div>
             <Link href={"/auth/login"} passHref>
               <a className={styles.loginBtn}>Login</a>

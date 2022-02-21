@@ -20,11 +20,9 @@ import Cookies from "js-cookie";
 const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
-  const randomDiscounts = [0.03, 0.1, 0.02, 0.05, 0.23, 0.5];
-  const randomNum = Math.floor(Math.random() * randomDiscounts.length);
-  const randomVal = useRef<number>(randomDiscounts[randomNum]);
+ 
 
-  const { addProduct } = useContext(ProductsContext);
+  const { addProduct,discount} = useContext(ProductsContext);
 
   const handleAddToCart = () => {
     addProduct(product);
@@ -67,7 +65,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
                 ${parseFloat(product.price).toFixed(2)}
               </h3>
               <div className={styles.discArr}>
-                <span>{randomVal.current * 100}</span>%
+                <span>{discount * 100}</span>%
                 <FontAwesomeIcon icon={faArrowDown} size="1x" />
               </div>
             </div>
@@ -75,7 +73,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
               $
               {(
                 parseFloat(product.price) -
-                parseFloat(product.price) * randomVal.current
+                parseFloat(product.price) * discount
               ).toFixed(2)}
             </h2>
             <hr />

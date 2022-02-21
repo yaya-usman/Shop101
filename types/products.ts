@@ -16,7 +16,8 @@ export type ProductWithQty = {
     category: string;
     description: string;
     image: string;
-    qty: number
+    qty: number;
+    discountedPrice: number;
 }
 
 
@@ -26,6 +27,9 @@ export type ProductContextState = {
     addProduct: (prod : IProducts) => void;
     delProduct: (id: number) => void;
     increaseQty: (id : number) => number | undefined;
-   decreaseQty: (id : number) => number | undefined;
+    decreaseQty: (id : number) => number | undefined;
+    totalItem: number,
+    discount: number
+
   }
   
