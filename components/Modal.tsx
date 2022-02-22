@@ -20,6 +20,8 @@ const modal = {
 
 
 
+
+
 const Modal: React.FC<{ product: IProducts, setModal: any }> = ({ product, setModal }) => {
 
     const router = useRouter()

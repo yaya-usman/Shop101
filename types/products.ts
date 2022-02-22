@@ -29,7 +29,9 @@ export type ProductContextState = {
     increaseQty: (id : number) => number | undefined;
     decreaseQty: (id : number) => number | undefined;
     totalItem: number,
-    discount: number
+    discount: number,
+    totalPrice: number,
+    totalDiscountedPrice: number
 
   }
   
