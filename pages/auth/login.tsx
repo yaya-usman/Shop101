@@ -32,7 +32,7 @@ const Login: NextPage = () => {
     <div className={styles.login}>
       <div className={styles.heading}>
         <h3>Hello,</h3>
-        <p>Login to Shop101 or create an account, don't miss the discounts!</p>
+        <p>Login to Shop101 or create an account,don&apos;t miss the discounts!</p>
       </div>
       <div className={styles.wrapper}>
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
@@ -56,11 +56,11 @@ const Login: NextPage = () => {
           <button>Login</button>
         </form>
         <div className={styles.signupCta}>
-            <p>Don't have an account? &nbsp;
-              <Link href={"/auth/signup"}>
-                <a>click here to sign up</a>
-              </Link>
-            </p>
+          <p>Don&apos;t have an account? &nbsp;
+            <Link href={"/auth/signup"}>
+              <a>click here to sign up</a>
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ const Signup: NextPage = () => {
     <div className={styles.signup}>
       <div className={styles.heading}>
         <h3>Hello,</h3>
-        <p>Login to Shop101 or create an account, don't miss the discounts!</p>
+        <p>Login to Shop101 or create an account, don&apos;t miss the discounts!</p>
       </div>
       <div className={styles.wrapper}>
         <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
@@ -82,15 +82,3 @@ const Signup: NextPage = () => {
 };
 
 export default Signup;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get("https://fakestoreapi.com/products");
-
-  const data = await res.data;
-
-  return {
-    props: {
-      products: data,
-    },
-  };
-};
