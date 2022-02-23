@@ -11,11 +11,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/ProductsContext";
 import { parseCookies } from "../utils/parseCookies";
 import { useRouter } from "next/router";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import { IProducts } from "../types";
+import getStripe from "../utils/getStripe";
 
 const Cart: NextPage<any> = () => {
   const [_, setQuantity] = useState<number | undefined>(1)
   const { products, delProduct, increaseQty, decreaseQty, totalDiscountedPrice, totalPrice } = useContext(ProductsContext);
   const router = useRouter()
+  const [redirecting, setRedirecting] = useState(false);
+
+
 
   const handleIncrease = (id: number) => {
     let res = increaseQty(id);
@@ -26,8 +33,22 @@ const Cart: NextPage<any> = () => {
     setQuantity(res)
   }
 
-  console.log(totalPrice);
-
+  
+    const redirectToCheckout = async () => {
+      // Create Stripe checkout
+      const {
+        data: { id },
+      } = await axios.post('/api/checkout_sessions', {
+        items: Object.entries(products).map(([_, { id, qty }]) => ({
+          price: id,
+          qty,
+        })),
+      });
+  
+      // Redirect to checkout
+      const stripe = await getStripe();
+      await stripe?.redirectToCheckout({ sessionId: id });
+    };
 
   return (
     <div className={styles.container}>
@@ -143,7 +164,7 @@ const Cart: NextPage<any> = () => {
             <span>$ {totalDiscountedPrice.toFixed(2)}</span>
           </div>
 
-          <button disabled={products.length < 1} className={styles.button} onClick={() => router.push('/checkout')}>
+          <button disabled={products.length < 1} className={styles.button} onClick={redirectToCheckout}>
             PROCEED TO CHECKOUT
           </button>
 

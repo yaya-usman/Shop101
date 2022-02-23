@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@mui/icons-material": "^5.4.1",
     "@mui/material": "^5.4.1",
+    "@stripe/stripe-js": "^1.23.0",
     "axios": "^0.25.0",
     "cookie": "^0.4.2",
     "framer-motion": "^6.2.6",
@@ -26,7 +27,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-loading-skeleton": "^3.0.3",
-    "react-use": "^17.3.2"
+    "react-use": "^17.3.2",
+    "stripe": "^8.203.0"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.1",
