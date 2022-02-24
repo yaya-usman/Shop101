@@ -7,8 +7,7 @@ import { GetStaticProps } from "next";
 import axios from "axios";
 import { IProducts } from "../types";
 
-const Home: NextPage<{products:IProducts[]}> = ({products}) => {
-   
+const Home: NextPage<{ products: IProducts[] }> = ({ products }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -23,7 +22,7 @@ const Home: NextPage<{products:IProducts[]}> = ({products}) => {
           referrerPolicy="no-referrer"
         />
       </Head>
-      <Featured products ={products} />
+      <Featured products={products} />
       <Category />
     </div>
   );
@@ -32,7 +31,7 @@ const Home: NextPage<{products:IProducts[]}> = ({products}) => {
 export const getStaticProps: GetStaticProps = async () => {
   const res = await axios.get("https://fakestoreapi.com/products");
 
-  const data = await res.data as IProducts[];
+  const data = (await res.data) as IProducts[];
 
   return {
     props: {

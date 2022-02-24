@@ -1,6 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { stringify } from 'querystring';
-import Stripe from 'stripe';
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
