@@ -12,8 +12,8 @@ const Navbar : React.FC = () => {
   const {totalItem} = useContext<ProductContextState>(ProductsContext);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+    <div className={styles.navbar}>
+      <div className={styles.navbarWrapper}>
         <div className={styles.left}>
           <h3 onClick={() => router.push("/")}>SHOP101</h3>
           <span></span>

@@ -25,3 +25,33 @@
     cursor: pointer;
     color: var(--primary-color);
 }
+
+
+@media screen and (max-width: 428px) {
+
+   .container{
+       height: 5rem;
+   }
+    .wrapper > div:nth-child(1){
+        display: none;
+    }
+    .wrapper > div:nth-child(2){
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+    .icon{
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+@media screen and (max-width: 332px) {
+    .wrapper > div:nth-child(2){
+        margin-right: 2rem;
+        font-size: 1.2rem;
+    }
+    .icon{
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}

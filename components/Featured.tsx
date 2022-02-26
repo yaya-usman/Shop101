@@ -1,22 +1,22 @@
 import styles from "../styles/Featured.module.css";
 import { useRouter } from "next/router";
-import { useEffect, useState,Fragment } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IProducts } from "../types";
+import Image from "next/image";
 
 const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
-
   const [index, setIndex] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
-    const slideAuto = setInterval(() => handleArrow("r"), 6000);
+  // useEffect(() => {
+  //   const slideAuto = setInterval(() => handleArrow("r"), 6000);
 
-    return () => {
-      clearInterval(slideAuto);
-    };
-  }, [index]);
+  //   return () => {
+  //     clearInterval(slideAuto);
+  //   };
+  // }, [index]);
 
   const handleArrow = (direction: string) => {
     if (direction === "l") {
@@ -43,7 +43,7 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
       >
         {products.length &&
           products.slice(0, 3).map((item) => (
-            <Fragment key={item.id}>
+            <div key={item.id} className={styles.innerWrapper}>
               <div className={styles.left}>
                 <div className={styles.content}>
                   <h4 className={styles.title}>{item.title}</h4>
@@ -59,10 +59,18 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
                   </button>
                 </div>
               </div>
-              <div className={styles.imgContainer}>
-                <img src={item.image} alt="First slide" />
+              <div className={styles.right}>
+                <div className={styles.imgContainer}>
+                  <Image
+                    src={item.image}
+                    width={650}
+                    height={650}
+                    alt="First slide"
+                    objectFit= "contain"
+                  />
+                </div>
               </div>
-            </Fragment>
+            </div>
           ))}
       </div>
 

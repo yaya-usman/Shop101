@@ -1,8 +1,6 @@
 .categories {
   height: 100%;
   position: relative;
-
-
 }
 
 .browseBtn {
@@ -32,7 +30,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 350px);
   gap: 1.5rem;
-
 }
 .catCard {
   cursor: pointer;
@@ -91,4 +88,59 @@
 }
 .wrapper div:nth-child(4) {
   grid-row: 2/-1;
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    width: 60%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .wrapper{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 350px);
+  }
+
+  .wrapper div:nth-child(1) {
+    grid-row: 1/2;
+  }
+  .wrapper div:nth-child(2) {
+    grid-row: 2/3;
+  }
+  
+  .wrapper div:nth-child(3) {
+    grid-row: 3/4;
+  }
+  .wrapper div:nth-child(4) {
+    grid-row: 4/-1;
+  }
+}
+
+
+@media screen and (max-width: 663px){
+
+  .wrapper{
+    grid-template-columns: 95vw;
+    margin-left: -7.5rem;
+  }
+}
+
+
+@media screen and (max-width: 428px){
+
+  .wrapper{
+    grid-template-columns: 95vw;
+    grid-template-rows: repeat(4, 250px);
+    margin-left: -8rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+
+  .browseBtn{
+    font-size: 1.2rem;
+    padding: 1.3rem 2.5rem;
+  }
 }

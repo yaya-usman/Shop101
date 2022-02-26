@@ -1,15 +1,19 @@
 .container {
-  height: calc(100vh - 80px);
   overflow: hidden;
   position: relative;
-  margin-top: -4.5rem;
+  margin-top: -4.3rem;
 }
 
 .wrapper {
-  display: flex;
-  height: 100%;
-  width: 300vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   transition: all 1.5s ease-in-out;
+}
+
+.innerWrapper {
+  display: flex;
+  width: 100vw;
   align-items: center;
 }
 
@@ -47,14 +51,13 @@
   font-weight: 500;
 }
 
-.imgContainer {
+.right {
   flex: 0.5;
-  height: 100%;
 }
 
-.imgContainer img {
+.imgContainer {
   height: 100%;
-  object-fit: contain;
+  align-self: center;
 }
 
 .arrowContainer {
@@ -72,4 +75,61 @@
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-left: -3rem;
+  }
+  .innerWrapper {
+    flex-direction: column;
+  }
+
+  .imgContainer {
+    height: 65%;
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+  }
+
+  .content {
+    width: 50%;
+    text-align: center;
+  }
+
+  .arrowContainer {
+    bottom: -25rem;
+  }
+  .desc {
+    line-height: 2.8rem;
+  }
+
+  .price {
+    margin-top: -0.87rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .desc {
+    display: none;
+  }
+
+  .price {
+    margin-top: 2.5rem;
+    font-size: 1.4rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+  .buyBtn {
+    font-size: 1.4rem;
+    padding: 1.5rem 4rem;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .content{
+    width: 80%;
+  }
 }

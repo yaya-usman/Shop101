@@ -13,15 +13,16 @@ const ProductCard: React.FC<{
 }> = ({ product }) => {
   const { addProduct, totalItem } = useContext(ProductsContext);
   const [adding, setAdding] = useState(false);
+  const [timesClicked,setTimesClicked] = useState<number>(0)
 
   const toastId = useRef<any>();
   const firstRun = useRef<boolean>(true);
-  const [qty, setQty] = useState(1);
 
   const handleAddToCart = (product: IProducts) => {
     setAdding(true);
     toastId.current = toast.loading("Adding 1 item...");
     addProduct(product);
+    setTimesClicked(prev => prev + 1);
   };
   useEffect(() => {
     if (firstRun.current) {
@@ -35,7 +36,7 @@ const ProductCard: React.FC<{
         id: toastId.current,
       });
     }
-  }, [totalItem]);
+  }, [totalItem,timesClicked]);
 
   return (
     <div className={styles.container}>
