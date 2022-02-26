@@ -10,13 +10,13 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
   const [index, setIndex] = useState(0);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const slideAuto = setInterval(() => handleArrow("r"), 6000);
+  useEffect(() => {
+    const slideAuto = setInterval(() => handleArrow("r"), 6000);
 
-  //   return () => {
-  //     clearInterval(slideAuto);
-  //   };
-  // }, [index]);
+    return () => {
+      clearInterval(slideAuto);
+    };
+  }, [index]);
 
   const handleArrow = (direction: string) => {
     if (direction === "l") {
