@@ -1,0 +1,39 @@
+.container{
+    height: calc(100vh - 220px);
+    display: flex;
+    justify-content: center;
+    margin: 5rem auto 0 auto;
+}
+
+
+.successWrapper{
+    width: 35%;
+
+
+}
+
+.content h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.content h2 > span{
+    margin-top: 1.5rem;
+}
+.content{
+    text-align: center;
+    background-color: #F3F4F6;
+    padding: .5rem 2rem;
+}
+
+.content p{
+    font-size: 1.8rem;
+    margin-top: -1.2rem;
+}
+
+.markIcon{
+    color: green !important;
+}

@@ -3,14 +3,15 @@
   display: flex;
   gap: 2rem;
   height: 100%;
+
 }
 
 .left {
-  flex: 2.2;
+  flex: .65;
 }
 
 .right {
-  flex: 1;
+  flex: .35;
 }
 
 .cartHeading {

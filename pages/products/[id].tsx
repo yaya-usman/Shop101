@@ -52,8 +52,8 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
             <div className={styles.imgContainer}>
               <Image
                 src={product.image}
-                width="500"
-                height="500"
+                width="380"
+                height="380"
                 objectFit="contain"
               />
             </div>

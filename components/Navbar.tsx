@@ -29,9 +29,6 @@ const Navbar : React.FC = () => {
               <FontAwesomeIcon icon={faBasketShopping} size="2x" />
               <span>{totalItem}</span>
             </div>
-            {/* <Link href={"/auth/login"} passHref>
-              <a className={styles.loginBtn}>Login</a>
-            </Link> */}
           </div>
         </div>
       </div>
