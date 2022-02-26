@@ -11,7 +11,6 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWindowScroll } from "react-use";
 
-
 const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
@@ -42,8 +41,6 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
       setVisibility(false);
     }
   }, [pageYOffset]);
-
-
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

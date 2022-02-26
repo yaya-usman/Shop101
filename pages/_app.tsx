@@ -8,6 +8,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import React from "react";
 import ProductsProvider from "../context/ProductsContext";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }: AppProps) {
   NProgress.configure({ showSpinner: false });
@@ -20,11 +21,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <ProductsProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ProductsProvider>
+    <>
+      <ProductsProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ProductsProvider>
+      <Toaster />
+    </>
   );
 }
 

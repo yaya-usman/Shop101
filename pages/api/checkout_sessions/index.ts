@@ -4,8 +4,7 @@ import { ProductWithQty } from "../../../types";
 const stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { items } = req.body;
-
+  const { items } = req.body;  
 
     const transformedItems = items.map((item : ProductWithQty) => {
       return {

@@ -19,6 +19,7 @@ const contextDefaultValues: ProductContextState = {
 export const ProductsContext =
   createContext<ProductContextState>(contextDefaultValues);
 
+
 const ProductsProvider: FC = ({ children }) => {
   const [products, setProducts] = useState<ProductWithQty[]>(
     contextDefaultValues.products
@@ -78,6 +79,9 @@ const ProductsProvider: FC = ({ children }) => {
         (prev) => prev - deletedProduct.discountedPrice * deletedProduct.qty
       );
     }
+
+    // Cookies.set("inCart", JSON.stringify([...newProducts]));
+
   };
 
   //=============INCREASE QTY====================//
@@ -109,6 +113,31 @@ const ProductsProvider: FC = ({ children }) => {
       return item?.qty;
     }
   };
+
+
+  //========CLEAR CART================//
+  const clearCart = () => contextDefaultValues;
+
+
+
+
+  // const cartReducer = (state = [], action: any) => {
+  //   switch (action.type) {
+  //     case 'ADD_ITEM':
+  //       return addProduct(state,action.product);
+  //     case 'REMOVE_ITEM':
+  //       return delProduct(state, action.product, action.quantity);
+  //     case 'CLEAR_CART':
+  //       return clearCart();
+  //     default:
+  //       return state;
+  //   }
+  // };
+
+
+
+
+
 
   return (
     <ProductsContext.Provider

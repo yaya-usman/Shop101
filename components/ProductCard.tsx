@@ -1,18 +1,42 @@
 import Image from "next/image";
-import React,{useContext} from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import styles from "../styles/ProductCard.module.css";
 import { IProducts } from "../types";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { ProductsContext } from "../context/ProductsContext";
+import { toast } from "react-hot-toast";
 
+const ProductCard: React.FC<{
+  product: IProducts;
+}> = ({ product }) => {
+  const { addProduct, totalItem } = useContext(ProductsContext);
+  const [adding, setAdding] = useState(false);
 
-const ProductCard: React.FC<{ product: IProducts }> = ({ product }) => {
-  
-  const { addProduct } = useContext(ProductsContext);
+  const toastId = useRef<any>();
+  const firstRun = useRef<boolean>(true);
+  const [qty, setQty] = useState(1);
 
-  
+  const handleAddToCart = (product: IProducts) => {
+    setAdding(true);
+    toastId.current = toast.loading("Adding 1 item...");
+    addProduct(product);
+  };
+  useEffect(() => {
+    if (firstRun.current) {
+      firstRun.current = false;
+      return;
+    }
+
+    if (adding) {
+      setAdding(false);
+      toast.success(`${product.title.slice(0, 100)} added`, {
+        id: toastId.current,
+      });
+    }
+  }, [totalItem]);
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -31,7 +55,7 @@ const ProductCard: React.FC<{ product: IProducts }> = ({ product }) => {
           <h3>{product.title}</h3>
           <div className={styles.price}>
             <span>${parseFloat(product.price).toFixed(2)}</span>
-            <span onClick={() => addProduct(product)}>
+            <span onClick={() => handleAddToCart(product)}>
               <FontAwesomeIcon icon={faCartPlus} size="1x" />
             </span>
           </div>
@@ -40,7 +64,5 @@ const ProductCard: React.FC<{ product: IProducts }> = ({ product }) => {
     </div>
   );
 };
-
-
 
 export default ProductCard;

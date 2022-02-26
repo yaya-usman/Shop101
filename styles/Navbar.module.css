@@ -50,6 +50,7 @@
 
 .cart{
   position: relative;
+  color: var(--primary-color);
 }
 
 .cart span{
