@@ -48,7 +48,7 @@ const Featured: React.FC<{ products: IProducts[] }> = ({ products }) => {
                 <div className={styles.content}>
                   <h4 className={styles.title}>{item.title}</h4>
                   <p className={styles.desc}>
-                    {item.description && item.description.slice(0, 200)}....
+                    {item.description && item.description.slice(0, 200)}...
                   </p>
                   <h6 className={styles.price}>${item.price} /ONLY-</h6>
                   <button

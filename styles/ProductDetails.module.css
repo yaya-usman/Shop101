@@ -141,10 +141,9 @@
   top: 0;
   left: 0;
   z-index: 999;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
-
 }
 
 .modal {
@@ -224,4 +223,88 @@
   background-color: #e2e2e2;
   color: #505050;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1090px) {
+  .modalImg {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modalImg .objectContainer {
+    align-self: center;
+    width: 30%;
+    height: 30%;
+  }
+
+  .modalImg .modalTitle {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .modal {
+    flex-direction: column;
+    height: auto;
+  }
+  .modalImg {
+    margin-left: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    display: none;
+  }
+  .overlay {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1138px) {
+  .ctaBtn button:first-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 931px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .ctaBtn button:first-child {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .ctaBtn button:first-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ctaBtn button:last-child {
+    width: 100%;
+  }
+  .backArr p {
+    font-size: 1.4rem;
+  }
+
+  .right h2 {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .wrapper {
+    width: 100%;
+  }
+  .desc {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .ctaBtn button:last-child > .cartIcon {
+    display: none;
+  }
 }

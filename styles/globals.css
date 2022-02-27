@@ -4,6 +4,7 @@ html,
 body {
   padding:0;
   margin: 0;
+  position: relative;
 
 }
 
@@ -53,4 +54,12 @@ a {
   --tertiary-color: #747474;
   --box-shadow: 1px -3px 24px -15px rgba(0, 0, 0, 0.75);
   --border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+
+@media screen and (max-width: 370px) {
+  html{
+    font-size: 52%;
+  }
+
 }

@@ -1,8 +1,6 @@
 .container {
-  width: 33%;
   display: flex;
   justify-content: center;
-  
 }
 
 .wrapper {
@@ -22,15 +20,13 @@
   width: 80%;
   height: 80%;
   cursor: pointer;
-  transform: scale(.9);
-  transition: all .3s linear;
+  transform: scale(0.9);
+  transition: all 0.3s linear;
 }
 
-.imgContainer:hover{
+.imgContainer:hover {
   transform: scale(1);
-  
 }
-
 
 .body {
   width: 100%;
@@ -65,9 +61,15 @@
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.price span:nth-child(2):hover{
-    opacity: .8;
+.price span:nth-child(2):hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+
+  }
 }

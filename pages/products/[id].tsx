@@ -45,7 +45,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
             onClick={() => router.push("/products?sort=asc")}
           />
           <span>&nbsp;</span>
-          <p>{product.title}</p>
+          <p>{product.title.slice(0,40)}...</p>
         </div>
         <div className={styles.wrapper}>
           <div className={styles.left}>
@@ -77,7 +77,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
               ).toFixed(2)}
             </h2>
             <hr />
-            <p className={styles.desc}>{product.description.slice(0, 300)}</p>
+            <p className={styles.desc}>{product.description.slice(0, 300)}...</p>
 
             <div className={styles.freeDelivery}>
               <FontAwesomeIcon icon={faTruckFast} size="1x" />
@@ -92,6 +92,7 @@ const ProductDetails: React.FC<{ product: IProducts }> = ({ product }) => {
                   icon={faCartShopping}
                   size="1x"
                   style={{ marginRight: "6" }}
+                  className={styles.cartIcon}
                 />
                 Add to Cart
               </button>

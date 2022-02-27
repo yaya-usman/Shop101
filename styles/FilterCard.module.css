@@ -1,5 +1,5 @@
 .left{
-  flex: 0.25;
+  flex: 0.3;
   display: flex;
   flex-direction: column;
 }
@@ -12,7 +12,6 @@
 
 .topLeft {
   padding: 2rem;
- 
   z-index: 99;
 }
 .topLeft h3 {
@@ -96,4 +95,23 @@
 .bottomLeft h3 {
   font-size: 2rem;
   color: #333;
+}
+
+
+
+@media screen and (max-width: 1350px) {
+  .box li{
+    margin-left: -2rem;
+  }
+  .box label{
+    width: 100%;
+    text-align: start;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .topLeft{
+    padding: .8rem;
+  }
 }
