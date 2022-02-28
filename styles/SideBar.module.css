@@ -6,18 +6,8 @@
     top: 0;
     left: -300px;
     z-index: 999;
-    transition: all 2s ease;
-
+    transition: all 1s ease;
 }
-
-
-.overlay.active{
-    left: 0;
-}
-.sideContainer.active{
-    left: 0;
-}
-
 
 
 .overlay {
@@ -28,7 +18,7 @@
     background: rgba(0, 0, 0, .5);
     height: 100%;
     width: 100%;
-    transition: all 2s ease ;
+    transition: all 1s ease ;
   }
 .closeContainer{
     display: flex;
@@ -52,8 +42,4 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 900px) {
-    .sideContainer .wrapper{
-        /* display: flex; */
-    }
-}
+

@@ -1,6 +1,5 @@
 import React, { createContext, useState, FC, useEffect } from "react";
 import { IProducts, ProductContextState, ProductWithQty } from "../types";
-import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { usePrevious } from "../hooks/usePrevious";
 
@@ -18,7 +17,6 @@ const contextDefaultValues: ProductContextState = {
 
 export const ProductsContext =
   createContext<ProductContextState>(contextDefaultValues);
-
 
 const ProductsProvider: FC = ({ children }) => {
   const [products, setProducts] = useState<ProductWithQty[]>(
@@ -59,8 +57,6 @@ const ProductsProvider: FC = ({ children }) => {
       setTotalDiscPrice((prev) => prev + discountedPrice);
     }
     setTotalPrice((prev) => prev + parseFloat(newProduct.price));
-
-    // Cookies.set("inCart", JSON.stringify([...products, newProduct]));
   };
 
   //=============REMOVE FROM CART====================//
@@ -79,9 +75,6 @@ const ProductsProvider: FC = ({ children }) => {
         (prev) => prev - deletedProduct.discountedPrice * deletedProduct.qty
       );
     }
-
-    // Cookies.set("inCart", JSON.stringify([...newProducts]));
-
   };
 
   //=============INCREASE QTY====================//
@@ -113,31 +106,6 @@ const ProductsProvider: FC = ({ children }) => {
       return item?.qty;
     }
   };
-
-
-  //========CLEAR CART================//
-  const clearCart = () => contextDefaultValues;
-
-
-
-
-  // const cartReducer = (state = [], action: any) => {
-  //   switch (action.type) {
-  //     case 'ADD_ITEM':
-  //       return addProduct(state,action.product);
-  //     case 'REMOVE_ITEM':
-  //       return delProduct(state, action.product, action.quantity);
-  //     case 'CLEAR_CART':
-  //       return clearCart();
-  //     default:
-  //       return state;
-  //   }
-  // };
-
-
-
-
-
 
   return (
     <ProductsContext.Provider

@@ -11,6 +11,7 @@ import { faArrowUp, faFilter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWindowScroll } from "react-use";
 import SideBar from "../../components/SideBar";
+import { AnimatePresence } from "framer-motion";
 
 const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   const router = useRouter();
@@ -18,7 +19,6 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   const { y: pageYOffset } = useWindowScroll();
   const [visibility, setVisibility] = useState(false);
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
     const start = () => {
@@ -50,18 +50,19 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
   };
 
   const handleFilterClick = () => {
-    setIsActive(true);
     setShowFilter(true);
   };
   return (
-    <div className={styles.cover}>
-      {showFilter && (
-        <SideBar setShowFilter={setShowFilter} showFilter={showFilter} />
-      )}
+    <>
+      <AnimatePresence>
+        {showFilter && (
+          <SideBar setShowFilter={setShowFilter} showFilter={showFilter} />
+        )}
+      </AnimatePresence>
       <div className={styles.productsContainer}>
         <div className={styles.wrapper}>
-          {!showFilter &&
-            <FilterCard /> }
+          {!showFilter && <FilterCard />}
+          
           <div className={styles.filterCan} onClick={handleFilterClick}>
             <FontAwesomeIcon icon={faFilter} size="2x" />
             <span>FILTER</span>
@@ -84,7 +85,7 @@ const Products: NextPage<{ products: IProducts[] }> = ({ products }) => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

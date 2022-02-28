@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import React, { useContext, useState } from "react";
 import styles from "../styles/Cart.module.css";
@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import getStripe from "../utils/getStripe";
 
-const Cart: NextPage<any> = () => {
+const Cart: NextPage<any> = ({inCart}) => {
   const [_, setQuantity] = useState<number | undefined>(1);
   const {
     products,
@@ -76,7 +76,7 @@ const Cart: NextPage<any> = () => {
               </tr>
             ) : (
               <>
-                {products.map((product) => {
+                {products.map((product: any) => {
                   return (
                     <tr className={styles.tr} key={product.id}>
                       <td className={styles.imgContainer}>
@@ -170,3 +170,5 @@ const Cart: NextPage<any> = () => {
 };
 
 export default Cart;
+
+
