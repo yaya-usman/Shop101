@@ -3,7 +3,6 @@
 This is a fully functional e-commerce website with a well detailed and simple UI  built with [Next.js](https://nextjs.org/). I tried as much to model a real ecommerce website, with most functionality included from filtering products functionalities etc to checkout with Stripe.
 
 <br />
-<br />
 
 **Live demo is [here](https://shop101.vercel.app/).**
 
@@ -15,9 +14,9 @@ This is a fully functional e-commerce website with a well detailed and simple UI
 * State Management: [React ContextApi](https://reactjs.org/docs/context.html)
 * Payment Gateway: [Stripe](https://stripe.com/)
 * Styling: [Vanilla CSS]("")
-* UI Library: [Material UI]("https://mui.com/")
-* Illustrations: [Freepik]("https://www.freepik.com/vectors/illustrations")
-* Icons: [FontAwesome]("https://fontawesome.com/icons")
+* UI Library: [Material UI](https://mui.com/)
+* Illustrations: [Freepik](https://www.freepik.com/vectors/illustrations)
+* Icons: [FontAwesome](https://fontawesome.com/icons)
 * Animations: [Framer Motion](https://www.framer.com/motion/)
 * Linting: [ESLint](https://eslint.org/)
 * Code Formatting: [Prettier](https://prettier.io/)
