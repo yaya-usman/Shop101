@@ -3,6 +3,7 @@ import { IProducts, ProductContextState, ProductWithQty } from "../types";
 import { useRouter } from "next/router";
 import { usePrevious } from "../hooks/usePrevious";
 
+
 const contextDefaultValues: ProductContextState = {
   products: [],
   addProduct: () => {},
@@ -18,8 +19,8 @@ const contextDefaultValues: ProductContextState = {
 export const ProductsContext =
   createContext<ProductContextState>(contextDefaultValues);
 
-const ProductsProvider: FC = ({ children }) => {
-  const [products, setProducts] = useState<ProductWithQty[]>(
+  const ProductsProvider: FC = ({ children }) => {
+    const [products, setProducts] = useState<ProductWithQty[]>(
     contextDefaultValues.products
   );
   const [totalItem, setTotalItem] = useState<number>(0);
@@ -57,7 +58,9 @@ const ProductsProvider: FC = ({ children }) => {
       setTotalDiscPrice((prev) => prev + discountedPrice);
     }
     setTotalPrice((prev) => prev + parseFloat(newProduct.price));
-  };
+  }
+    
+ 
 
   //=============REMOVE FROM CART====================//
   const delProduct = (id: number) => {

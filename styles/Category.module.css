@@ -38,16 +38,13 @@
   position: relative;
 }
 
-.catCard > img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.catCard > span {
   transition: all 0.8s ease-in-out;
   position: absolute;
   z-index: 10;
 }
 
-.catCard:hover > img {
+.catCard:hover > span {
   transform: scale(1.2);
 }
 
@@ -68,6 +65,7 @@
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 2rem;
+  width: fit-content;
   border-radius: 5px;
   color: white;
   font-size: 3rem;
