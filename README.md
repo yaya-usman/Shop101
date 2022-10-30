@@ -49,8 +49,7 @@ export const JustAnotherProject = () => {
 
 ## Author
 
-- LinkedIn - [Let's connect 🔗](http://www.linkedin.com/in/yaya-usman-adaiza-430964192)
-- Twitter - [Let's be tweep mutuals 🥰](https://twitter.com/y_usman007)
+- LinkedIn - [Let's connect 🔗](http://www.linkedin.com/in/yaya-usman)
 - Website - [Here](https://yaya-usman.github.io/)
 
 
